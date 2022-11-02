@@ -2,3 +2,6 @@
 .vscode
 a.out
 libft-war-machine/
+*.o
+*.swp
+*.a
