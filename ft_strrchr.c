@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abasterr <abasterr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 12:10:12 by abasterr          #+#    #+#             */
-/*   Updated: 2022/09/26 18:50:30 by abasterr         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:16:31 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		return (((char *)s) + len);
 	while (len >= 0)
 	{
-		if (s[len] == c)
+		if (s[len] == (unsigned char)c)
 			return (((char *)s) + len);
 		len--;
 	}
