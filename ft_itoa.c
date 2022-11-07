@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abasterr <abasterr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:37:05 by abasterr          #+#    #+#             */
-/*   Updated: 2022/10/12 11:35:25 by abasterr         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:43:14 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ char	*ft_itoa(int n)
 
 	digit = ft_digit(n);
 	sign = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	str = (char *) malloc(sizeof(char) * (digit + 1));
 	if (!str)
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
 		n = n * (-1);
