@@ -6,7 +6,7 @@
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:04:27 by abasterr          #+#    #+#             */
-/*   Updated: 2022/11/10 19:32:22 by abasterr         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:53:37 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,11 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 
 	ptr = ft_str_memory(s, c);
+	if (!ptr)
+		return (0);
 	i = 0;
 	j = 0;
+	start = 0;
 	while (s[i])
 	{
 		while (s[i] == c)
@@ -82,12 +85,13 @@ char	**ft_split(char const *s, char c)
 		if (!s[i])
 			break ;
 		start = i;
+		while (s[i] && s[i] != c)
+			i++;
 		ptr[j++] = ft_substr(s, start, i - start);
 		if (ptr [j - 1] == NULL)
 			return (ft_free_array(ptr));
 	}
 	return (ptr);
-	free (ptr);
 }
 
 /*
@@ -95,8 +99,7 @@ char	**ft_split(char const *s, char c)
 int main()
 {
 	char **ptr;
-	char a[]="lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-	Sed non risus. Suspendisse";
+	char a[]="lorem aasdasd asdsa";
 	char c;
 	int count;
 	int i;

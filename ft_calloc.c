@@ -6,7 +6,7 @@
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 14:03:45 by abasterr          #+#    #+#             */
-/*   Updated: 2022/11/07 19:27:35 by abasterr         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:09:01 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (size == 0)
+		return (ft_strdup(""));
 	if (count <= 0 || size <= 0 || (count == SIZE_MAX && size == SIZE_MAX))
 		return (0);
 	ptr = malloc(count * size);

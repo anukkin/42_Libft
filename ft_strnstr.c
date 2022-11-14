@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abasterr <abasterr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 13:02:30 by abasterr          #+#    #+#             */
-/*   Updated: 2022/09/27 16:52:10 by abasterr         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:41:22 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 	size_t	i;
 
+	if ((!haystack && len == 0))
+		return (0);
 	if (needle[0] == 0)
 		return ((char *)haystack);
 	i = 0;
-	while (haystack[i] != '\0' && i < len - 1 && len)
+	while (haystack[i] != '\0' && (i < len - 1 || len))
 	{
 		j = 0;
 		if (haystack[i] == needle[j])
@@ -36,16 +38,21 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (0);
 }
+
 /*
 #include <stdio.h>
 #include <string.h>
 int main()
 {
-	char a1[20] = "AAAAAAAAAAAAA";
-	char a2[20] = "AAAAAAAAAAAAA";
-	int n;
+	char a1[20] = "aaabcabcd";
+ 	// char a2[20] = "AAAAAAAAAAAAA";
+ 	int n;
 
-	n = 12;
+ 	n = 12;
 
-	printf("%s\n", strnstr(a1, a2, 13));
+ 	printf("%s\n", ft_strnstr("aaabcabcd", "a", 1));
+	printf("%s\n", strnstr("aaabcabcd", "a", 1));
+ //	printf("%s\n", strnstr(((void *)0), "fake", 3));
+ 	if (a1 == ft_strnstr(a1, "a", 1))
+ 		printf("si");
 }*/
